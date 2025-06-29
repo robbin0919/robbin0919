@@ -50,7 +50,7 @@
 > 
 > ### 分支策略流程圖 (Sequence Diagram)
 > 
-> 以下是這個流程的視覺化表示：
+> 以下是這個流程的視覺化表示：(ERP_sequenceDiagram01.md)
  
 ``` mermaid
  sequenceDiagram
