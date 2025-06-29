@@ -1,4 +1,3 @@
-
 有一套ERP系統，由三個團隊負責維運開發，每個團隊各有一位PM、SA、SD與三位開發人員，這樣的開發團隊如何規劃GIT分支策略
 
 > Copilot: 好的，針對一個ERP系統、三個開發團隊的維運開發情境，這是一個非常典型的多團隊協作模型。我會建議採用一個改良版的 **GitFlow** 作為核心策略。這個策略的優點是結構清晰、穩定性高，非常適合有排程發佈、需要版本控制、且有多人同時開發的大型專案。
@@ -49,6 +48,46 @@
 >         3.  合併到 `main` 後，立即在 `main` 分支上打上新的 **Tag** (例如 `v1.1.1`)。
 >         4.  合併回 `develop` 是為了確保線上修復的 Bug 不會在下個版本再次出現。
 > 
+> ### 分支策略流程圖 (Sequence Diagram)
+> 
+> 以下是這個流程的視覺化表示：
+ 
+``` mermaid
+ sequenceDiagram
+    participant D as 開發人員
+    participant F as feature/*
+    participant Dev as develop
+    participant RM as 發佈經理
+    participant R as release/*
+    participant M as main
+    participant H as hotfix/*
+
+    loop 功能開發
+    D->>Dev: 從 develop 建立 feature 分支
+    D->>F: 在 feature 分支上開發
+    D->>Dev: 建立 Pull Request (PR)
+    Note over Dev: 程式碼審核 (Code Review)
+    Dev-->>F: 合併 PR 到 develop
+    end
+
+    loop 版本發佈
+    RM->>Dev: 從 develop 建立 release 分支
+    Note over R: QA 測試與 Bug 修復
+    RM->>M: 合併 release 到 main
+    RM->>M: 標記版本 (Tag)
+    RM->>Dev: 合併 release 回 develop
+    end
+
+    loop 緊急修復
+    D->>M: 從 main 建立 hotfix 分支
+    D->>H: 在 hotfix 分支上修復
+    D->>M: 合併 hotfix 到 main
+    D->>M: 標記新版本 (Tag)
+    D->>Dev: 合併 hotfix 回 develop
+    end
+```
+
+ 
 > ---
 > 
 > ### 三個團隊的協作流程
@@ -81,6 +120,20 @@
 >     *   如果修改涉及核心共用模組，建議邀請其他團隊的 SD 或代表加入審核。
 > 3.  **自動化 CI/CD**：PR 建立時，應自動觸發單元測試、程式碼風格檢查等 CI 流程，確保程式碼品質。
 > 4.  審核通過且 CI 成功後，才允許合併到 `develop`。
+> 
+> **階段四：發佈 (Release)**
+> 
+> 1.  當 `develop` 分支的功能達到發佈標準時 (例如，一個 Sprint 結束)，由一位指定的發佈經理 (Release Manager，可以是某個團隊的 SD 輪流擔任) 建立 `release` 分支。
+> 2.  QA 團隊在基於 `release` 分支部署的測試環境 (Staging/UAT) 中進行全面測試。發現的 Bug 由開發人員在 `release` 分支上修復。
+> 3.  測試通過後，將 `release` 分支合併到 `main` 並部署到生產環境，同時打上版本 Tag。最後再將 `release` 分支合併回 `develop`。
+> 
+> ### 總結與建議
+> 
+> *   **溝通是關鍵**：雖然 Git 策略提供了技術框架，但團隊間的溝通更為重要。建議每週舉行一次跨團隊的同步會議 (Scrum of Scrums)，由各團隊的 PM 或 SD 參加，同步進度與解決依賴問題。
+> *   **Pull Request (PR) 文化**：強制所有合併都必須通過 PR，並落實 Code Review。這是保證 `develop` 和 `main` 分支質量的核心手段。
+> *   **自動化**：盡可能地將測試、檢查、部署等流程自動化，減少人為錯誤。
+> 
+> 這套策略為您的三個團隊提供了一個清晰、可控且能平行作業的開發流程，能有效支撐 ERP 系統的長期維運與開發。
 > 
 > **階段四：發佈 (Release)**
 > 
