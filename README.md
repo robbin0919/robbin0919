@@ -8,9 +8,15 @@ I'm a developer interested in C# and Windows scripting. Welcome to my digital ga
 
 ### 🔗 Connect with me:
 <p align="left">
-<a href="https://www.robbinlee.com/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/main/src/images/icons/Social/website.svg" alt="robbinlee.com" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/robbin0919" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/main/src/images/icons/Social/linked-in-alt.svg" alt="robbin0919" height="30" width="40" /></a>
-<a href="https://robbin0919.medium.com/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/main/src/images/icons/Social/medium.svg" alt="robbin0919" height="30" width="40" /></a>
+  <a href="https://www.robbinlee.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Website-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website"/>
+  </a>
+  <a href="https://linkedin.com/in/robbin0919" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://robbin0919.medium.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium"/>
+  </a>
 </p>
 
 ---
