@@ -60,7 +60,8 @@ I'm a developer interested in C# and Windows scripting. Welcome to my digital ga
 ---
 
 ### 📊 My GitHub Stats:
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=robbin0919&show_icons=true&locale=en" alt="robbin0919" /></p>
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=robbin0919&" alt="robbin0919" /></p>
+<p align="center"><img src="https://github-readme-stats.vercel.app/api/top-langs?username=robbin0919&layout=compact&langs_count=8&theme=default&hide=html,css,javascript" alt="top langs" /></p>
+<p align="center"><img src="https://github-readme-stats.vercel.app/api?username=robbin0919&show_icons=true&locale=en" alt="robbin0919" /></p>
+<p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=robbin0919&" alt="robbin0919" /></p>
 
 ---
